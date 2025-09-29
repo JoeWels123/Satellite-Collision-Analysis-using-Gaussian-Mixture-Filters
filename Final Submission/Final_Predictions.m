@@ -8,8 +8,6 @@ numTimeSteps = length(timeVector);
 %% Earth Parameters
 earthRadius = 6.378137e6; % meters
 mu_earth = 3.986004418e14;
-xmlFolder = "C:\Users\JoeWW\orbitComparison-20250914T164149Z-1-001\orbitComparison\Debris_Folder";
-ommFiles = dir(fullfile(xmlFolder, '*.xml'));
 
 N = 5;
 numSamples = 10000;
@@ -408,4 +406,5 @@ ylabel('Total Collision Probability');
 title('Total Collision Probability over Time - Linear Scale');
 grid on;
 hold off;
+
 
