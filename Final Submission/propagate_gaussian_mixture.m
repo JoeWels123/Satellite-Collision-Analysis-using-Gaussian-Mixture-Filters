@@ -2,7 +2,7 @@ function [collisionprobs_total, lognoprob, noprob] = propagate_gaussian_mixture(
     fengyun_gaussian_means, cosmos_gaussian_means, ...
     fengyun_gaussian_covariances, cosmos_gaussian_covariances, ...
     fengyun_gaussian_weights, cosmos_gaussian_weights, ...
-    numTimeSteps, N)
+    numTimeSteps, N, R)
 
 global common_timeVector
 
@@ -36,7 +36,6 @@ for g1 = 1:N  % Fengyun (ISS) Gaussians
         debris_pos_cov = debris_gaussian_cov(1:3, 1:3, :);  % [3 x 3 x numTimeSteps]
         
         % Compute collision probability for this Gaussian pair
-        R = 6;  % Hard body radius
         [~, collisionprobs_pair, ratios] = compute_collision_probability_over_time_weighted(...
             ISS_pos, ISS_pos_cov, ISS_vel, ...
             debris_pos, debris_pos_cov, debris_vel, R);
@@ -86,5 +85,6 @@ title('Collision Probability - Linear Scale');
 grid on;
 
 fprintf('Max collision probability = %.6e\n', max(collision_prob_timestep));
+
 
 end
