@@ -9,7 +9,6 @@ A MATLAB toolbox for orbit determination using a Gaussian Sum Filter (GSF) with 
 - [Function Index (APIs)](#function-index-apis)
 - [Script Index (Experiments / Workflows)](#script-index-experiments--workflows)
 - [Typical Workflow](#typical-workflow)
-- [Conventions](#conventions)
 - [Reference](#reference)
 - [License](#license)
 
@@ -64,31 +63,15 @@ The toolkit implements and propagates a Gaussian-Sum Unscented Kalman Filter (GS
 ## Typical Workflow
 
 1. **Initialize scenario & uncertainty**
-   - Parse OMM/TLE → `nominal`, `P` using `convertOMMToEquinoctialElements.m`.
-   - Choose mixture size `N` and sigma-point params (if using UKF).
+   - Go to Space-Track.org and download two colliding orbital objects. Either keep the existing orbital objects as in Final Predictions or change.
+   - Uncertainty in initial state is given in classical_to_equinoctial.m, change these as you see fit.
+   - In Final_Predictions.m, select a stop time that is long enough so that the two orbital objects have overalapping times.
+   - Select the number of Gaussians (N).
+   - In Comparing_GSUKF_MonteCarlo, the number of samples do deliver the ground truth is vital. Over a 2 day propagation time, 40,000 samples suffices.
 
 2. **Build & propagate the mixture**
-   - Call/inspect `GenerateGSF.m` outputs over `[startTime, stopTime]`.
-
-3. **Ingest measurements & update**
-   - Use `UpdateGSF.m` (full update), or run one of the scripts:
-     - *Weight-only* updates (no collapse): `Updating_only_GSF_using_Measurement3.m`
-     - *Collapse+resample* updates: `Updating_only_GSF_using_Measurement2.m`
-     - *UKF+GSF* weight updates: `Updating_both_GSF_and_UKF_using_Measurement2.m`
-
-4. **Compare against ground truth**
-   - Run `ISS_Positions_Monte_Carlo.m` and compare mixture mean/cov vs Monte Carlo.
-
-5. **Research utilities**
-   - Split strategy study: `Comparing_Different_Gaussian_Splits.m`
-   - Collision probability minimization: `Collision_prob_mixture.m`
-
----
-
-## Conventions
-- **State**: Equinoctial elements for estimation; conversions provided to/from Keplerian.
-- **Measurements**: AER (azimuth, elevation, range) from a ground station; use `groundStationECI.m` and `jacobianECItoAER.m`.
-- **Weights**: `Wm`, `Wc` denote sigma-point mean/cov weights; `gaussian_weights` are mixture component weights.
+   - Run Final_Predictions.m
+   - Run Comparing_GSUKF_MonteCarlo.m
 
 ---
 
@@ -99,5 +82,6 @@ The toolkit implements and propagates a Gaussian-Sum Unscented Kalman Filter (GS
 ---
 
 ## License
-Specify your license (e.g., MIT) here.
+Done with UCL
+
 
