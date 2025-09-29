@@ -366,10 +366,7 @@ R = 6; % Combined hard body radius of the two objects.
 
 fprintf('Calculating total collision probability across all debris...\n');
 for j = 1:numCommonSteps
-    lognoprob(j) = 0; 
-    for i = 1:numDebris
-        lognoprob(j) = lognoprob(j) + log1p(-collisionprobs_total(1, j, i));
-    end
+    lognoprob(j) = log1p(-collisionprobs_total(1, j, 1));
     noprob(j) = exp(lognoprob(j));
 end
 total_collision_prob_per_timestep = 1 - noprob; 
@@ -406,5 +403,6 @@ ylabel('Total Collision Probability');
 title('Total Collision Probability over Time - Linear Scale');
 grid on;
 hold off;
+
 
 
