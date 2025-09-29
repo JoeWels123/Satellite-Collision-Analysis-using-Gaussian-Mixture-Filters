@@ -1,7 +1,7 @@
 function [collisionprobs_total, lognoprob, noprob] = propagate_gaussian_mixture(...
-    fengyun_gaussian_means, cosmos_gaussian_means, ...
-    fengyun_gaussian_covariances, cosmos_gaussian_covariances, ...
-    fengyun_gaussian_weights, cosmos_gaussian_weights, ...
+    Object1_gaussian_means, Object2_gaussian_means, ...
+    Object1_gaussian_covariances, Object2_gaussian_covariances, ...
+    Object1_gaussian_weights, Object2_gaussian_weights, ...
     numTimeSteps, N, R)
 
 global common_timeVector
@@ -17,14 +17,14 @@ noprob = zeros(1, numTimeSteps);
 collision_prob_timestep = zeros(1, numTimeSteps);
 
 % Loop over all combinations of Gaussian components
-for g1 = 1:N  % Fengyun (ISS) Gaussians
-    for g2 = 1:N  % Cosmos (Debris) Gaussians
+for g1 = 1:N  % Object1 Gaussians
+    for g2 = 1:N  % Object2 Gaussians
         
         % Extract means and covariances for this Gaussian pair
-        ISS_gaussian_mean = fengyun_gaussian_means(:, :, g1);  % [6 x numTimeSteps]
-        debris_gaussian_mean = cosmos_gaussian_means(:, :, g2);  % [6 x numTimeSteps]
-        ISS_gaussian_cov = fengyun_gaussian_covariances(:, :, :, g1);  % [6 x 6 x numTimeSteps]
-        debris_gaussian_cov = cosmos_gaussian_covariances(:, :, :, g2);  % [6 x 6 x numTimeSteps]
+        ISS_gaussian_mean = Object1_gaussian_means(:, :, g1);  % [6 x numTimeSteps]
+        debris_gaussian_mean = Object2_gaussian_means(:, :, g2);  % [6 x numTimeSteps]
+        ISS_gaussian_cov = Object1_gaussian_covariances(:, :, :, g1);  % [6 x 6 x numTimeSteps]
+        debris_gaussian_cov = Object2_gaussian_covariances(:, :, :, g2);  % [6 x 6 x numTimeSteps]
         
         % Extract position and velocity components
         ISS_pos = ISS_gaussian_mean(1:3, :);     % [3 x numTimeSteps]
@@ -41,7 +41,7 @@ for g1 = 1:N  % Fengyun (ISS) Gaussians
             debris_pos, debris_pos_cov, debris_vel, R);
         
         % Weight by the product of Gaussian weights and add to total
-        weight_product = fengyun_gaussian_weights(g1) * cosmos_gaussian_weights(g2);
+        weight_product = Object1_gaussian_weights(g1) * Object2_gaussian_weights(g2);
         collision_prob_timestep = collision_prob_timestep + weight_product * collisionprobs_pair;
         
         % Optional: Print progress for debugging
@@ -86,5 +86,5 @@ grid on;
 
 fprintf('Max collision probability = %.6e\n', max(collision_prob_timestep));
 
-
 end
+
