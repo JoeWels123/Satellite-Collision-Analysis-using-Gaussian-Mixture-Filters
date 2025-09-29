@@ -357,12 +357,14 @@ fprintf('Standard deviation of distance: %.2f km\n', std(relative_distances));
 closest_time = common_timeVector(min_idx);
 fprintf('Closest approach: %.2f km at %s\n', min_distance, datestr(closest_time));
 
+R = 6; % Combined hard body radius of the two objects.
+
 % Call the modified propagate function
 [collisionprobs_total, lognoprob, noprob] = propagate_gaussian_mixture(... 
     Object1_gaussian_means_common, Object2_gaussian_means_common , ...
     Object1_gaussian_covariances_common , Object2_gaussian_covariances_common , ...
     Object1_gaussian_weights, Object2_gaussian_weights, ...
-    numCommonSteps, N);
+    numCommonSteps, N, R);
 
 fprintf('Calculating total collision probability across all debris...\n');
 for j = 1:numCommonSteps
@@ -406,3 +408,4 @@ ylabel('Total Collision Probability');
 title('Total Collision Probability over Time - Linear Scale');
 grid on;
 hold off;
+
