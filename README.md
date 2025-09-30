@@ -24,7 +24,6 @@ The toolkit implements and propagates a Gaussian-Sum Unscented Kalman Filter (GS
 | File | Purpose | **Inputs** | **Outputs** |
 |---|---|---|---|
 | bhattacharyya_distance.m | Computes the Bhattacharyya distance between two multivariate Gaussian distributions. | mu1, Sigma1 (mean & cov of first Gaussian), mu2, Sigma2 (mean & cov of second Gaussian) | d (Bhattacharyya distance scalar) |
-
 | calculate_mixture_moments.m | Calculate skewness and kurtosis for Gaussian mixture distribution over time. | gaussian_means (3×T×N), gaussian_covs (3×3×T×N), weights (1×N), numTimeSteps | mixture_skewness (3×T), mixture_kurtosis (3×T) |
 
 | classical_to_equinoctial.m | Converts classical orbital elements to equinoctial coordinates with uncertainty. | elements1 (struct with meanmotion, Eccentricity, Inclination, RightAscensionOfAscendingNode, ArgumentOfPeriapsis, MeanAnomaly) | equinoctial (struct with a, h, k, p, q, l), P (6×6 covariance matrix) |
