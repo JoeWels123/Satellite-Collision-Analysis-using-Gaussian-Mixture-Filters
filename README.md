@@ -70,4 +70,4 @@ The toolkit implements and propagates a Gaussian-Sum Unscented Kalman Filter (GS
 ---
 
 ## License
-Done with UCL
+MIT
