@@ -62,11 +62,20 @@ The toolkit implements and propagates a Gaussian-Sum Unscented Kalman Filter (GS
    - Run Comparing_GSUKF_MonteCarlo.m
 ---
 
-<img width="918" height="1007" alt="Gaussians" src="https://github.com/user-attachments/assets/e4bf379c-f5e4-473b-b7ed-e3b1da707396" />
-<img width="1808" height="1002" alt="Positions" src="https://github.com/user-attachments/assets/ace75cfa-d49c-4335-a3d8-c6b46fed5ef6" />
-<img width="1808" height="1002" alt="Positions2" src="https://github.com/user-attachments/assets/ec571957-fbac-437c-a10e-6e6e783547ce" />
-<img width="1810" height="1010" alt="Relative" src="https://github.com/user-attachments/assets/e0b2c625-e2b7-4de6-aa6c-f4c48b3b6224" />
-<img width="1617" height="848" alt="Probabilities" src="https://github.com/user-attachments/assets/9ac89520-5be3-4427-a46d-dfe3ed4a1078" />
+<img width="367" height="403" alt="Gaussians" src="https://github.com/user-attachments/assets/e4bf379c-f5e4-473b-b7ed-e3b1da707396" />
+
+
+<img width="723" height="401" alt="Positions" src="https://github.com/user-attachments/assets/ace75cfa-d49c-4335-a3d8-c6b46fed5ef6" />
+
+
+<img width="723" height="401" alt="Positions2" src="https://github.com/user-attachments/assets/ec571957-fbac-437c-a10e-6e6e783547ce" />
+
+
+<img width="724" height="404" alt="Relative" src="https://github.com/user-attachments/assets/e0b2c625-e2b7-4de6-aa6c-f4c48b3b6224" />
+
+
+<img width="647" height="339" alt="Probabilities" src="https://github.com/user-attachments/assets/9ac89520-5be3-4427-a46d-dfe3ed4a1078" />
+
 
 
 
