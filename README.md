@@ -63,6 +63,7 @@ The toolkit implements and propagates a Gaussian-Sum Unscented Kalman Filter (GS
 ---
 
 ## Example Plots
+**From Final_Predictions.m**
 An example of the Gaussian Mixture is shown in the figure below, illustrating five propagated Gaussian components along with 300 Monte Carlo sample points.
 
 <img width="367" height="403" alt="Gaussians" src="https://github.com/user-attachments/assets/e4bf379c-f5e4-473b-b7ed-e3b1da707396" />
@@ -80,6 +81,29 @@ The plot below presents the relative distance between the two orbital objects.
 Finally, the total collision probability is constructed and shown in the following plot.
 
 <img width="647" height="339" alt="Probabilities" src="https://github.com/user-attachments/assets/9ac89520-5be3-4427-a46d-dfe3ed4a1078" />
+
+**From Comparing_GSUKF_MonteCarlo.m**
+
+Bhattacharyya distance computed using varying numbers of Gaussian components, compared against the ground truth Monte Carlo estimate (10,000 samples).
+
+<img width="1765" height="1009" alt="Bhattacharyya" src="https://github.com/user-attachments/assets/3aafcd7b-638a-4c99-abae-f6ba22a0428e" />
+
+Euclidean distance evaluated for different numbers of Gaussian components, compared with the ground truth Monte Carlo estimate.
+
+<img width="1741" height="1011" alt="Euclidean" src="https://github.com/user-attachments/assets/f3363bc0-3b7c-44ec-9342-58d412bc6721" />
+
+Computation time as a function of the number of Gaussian components.
+
+<img width="1755" height="1002" alt="Computation_Time" src="https://github.com/user-attachments/assets/72b26641-711e-4c1c-bf42-b7789cf34de1" />
+
+Comparison of higher-order moments (kurtosis and skewness) across different numbers of Gaussian components relative to the Monte Carlo estimate.
+
+<img width="1731" height="1002" alt="Kurtosis_Skewness" src="https://github.com/user-attachments/assets/42e33002-6b25-4a6f-be9e-ffe247241e8f" />
+
+Covariance envelope estimated with varying numbers of Gaussian components, compared to the ground truth Monte Carlo result.
+
+<img width="1750" height="1002" alt="Covariance" src="https://github.com/user-attachments/assets/b1141c9f-119a-4cc2-96dc-ea028c780ed9" />
+
 
 
 
